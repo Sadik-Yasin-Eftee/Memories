@@ -7,11 +7,14 @@ import postRoutes from "./routes/posts.js";
 
 const app = express();
 
-app.use('/posts' , postRoutes); //creates a page localhost:5000/posts
+// app.use('/posts' , postRoutes); //creates a page localhost:5000/posts
+//this app.use is to be used after cors which is line15
 
 app.use(bodyParser.json({ limit: "30mb" , extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb" , extended: true }));
 app.use(cors()); 
+
+app.use('/posts' , postRoutes); //creates a page localhost:5000/posts
 
 const CONNECTION_URL = 'mongodb+srv://Sadik41:Yasin1660Eftee@cluster0.wkoc5.mongodb.net/?retryWrites=true&w=majority'
 
